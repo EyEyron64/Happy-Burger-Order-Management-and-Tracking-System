@@ -1,12 +1,10 @@
-function createMenuItem({ name, description = "", price, category = "Burgers", image = "", available = true, id = null }) {
+function createMenuItem({ name, description = "", price, image = "", id = null }) {
   return {
     id: id || generateId("ITEM"),
     name,
     description,
     price: Number(price),
-    category,
     image,
-    available,
   };
 }
 

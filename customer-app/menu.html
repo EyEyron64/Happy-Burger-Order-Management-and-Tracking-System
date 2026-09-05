@@ -1,11 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Burger — Menu</title>
+<meta charset="UTF-8" />
+<title>Happy Burger — Menu</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/menu.css" />
 </head>
 <body>
-    
+
+<header class="hb-header">
+  <a href="index.html" class="hb-logo">HAPPY BURGER</a>
+  <nav class="hb-nav">
+    <a href="index.html">Home</a>
+    <a href="menu.html" class="active">Menu</a>
+    <a href="cart.html">Cart</a>
+  </nav>
+</header>
+
+<section class="menu-intro container">
+  <h2>Signature Menu</h2>
+  <p class="text-muted">
+    Discover our handcrafted burgers, made with premium locally-sourced
+    ingredients and our proprietary blend of seasonings. Engineered for
+    maximum flavor.
+  </p>
+</section>
+
+<section class="menu-layout container">
+  <div class="menu-scroll-area">
+    <div class="menu-grid" id="menu-grid">
+      <!-- Menu cards injected by menu.js -->
+    </div>
+  </div>
+</section>
+
+<footer class="hb-footer">
+  <span class="hb-footer-brand">HAPPY BURGER</span>
+  <span class="hb-footer-copy">© 2024 HAPPY BURGER. ALL RIGHTS RESERVED.</span>
+  <nav class="hb-footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+    <a href="#">Contact Us</a>
+  </nav>
+</footer>
+
+<script src="../shared/constants.js"></script>
+<script src="../shared/utils.js"></script>
+<script src="../shared/data-models.js"></script>
+<script src="../shared/storage.js"></script>
+<script src="../shared/seed-data.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/menu.js"></script>
 </body>
 </html>

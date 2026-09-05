@@ -1,0 +1,191 @@
+:root {
+  --hb-black: #111111;
+  --hb-white: #ffffff;
+  --hb-gray: #b9b9b9;
+  --hb-gray-dark: #6b6b6b;
+  --hb-border: #e6e6e6;
+  --hb-border-dark: #1f1f1f;
+
+  --font-display: "Archivo Black", sans-serif;
+  --font-body: "Inter", -apple-system, sans-serif;
+
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 20px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--hb-black);
+  background: var(--hb-white);
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  margin: 0 0 var(--space-md);
+  line-height: 1.05;
+}
+
+h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); }
+h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+h3 { font-size: 1.2rem; }
+
+p { line-height: 1.6; color: var(--hb-black); }
+.text-muted { color: var(--hb-gray-dark); }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+@media (max-width: 640px) {
+  .container { padding: 0 20px; }
+}
+
+/* ---------- Header ---------- */
+
+.hb-header {
+  background: var(--hb-white);
+  border-bottom: 1px solid var(--hb-border);
+  padding: 22px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hb-logo {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+}
+
+.hb-nav { display: flex; gap: 28px; }
+
+.hb-nav a {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #333;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+}
+
+.hb-nav a.active {
+  color: var(--hb-black);
+  font-weight: 600;
+  border-bottom-color: var(--hb-black);
+}
+
+.hb-nav a:hover { color: var(--hb-black); }
+
+@media (max-width: 640px) {
+  .hb-header {
+    padding: 18px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .hb-nav { gap: 18px; }
+}
+
+/* ---------- Buttons ---------- */
+
+.hb-btn {
+  display: inline-block;
+  background: var(--hb-black);
+  color: var(--hb-white);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 14px 28px;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.hb-btn:hover { background: #2a2a2a; }
+
+.hb-btn.light { background: var(--hb-white); color: var(--hb-black); }
+.hb-btn.light:hover { background: #e9e9e9; }
+
+.hb-btn.outline {
+  background: transparent;
+  color: var(--hb-black);
+  border: 2px solid var(--hb-black);
+}
+
+.hb-btn.outline:hover { background: var(--hb-black); color: var(--hb-white); }
+
+.hb-btn:disabled { background: var(--hb-gray); color: var(--hb-white); cursor: not-allowed; }
+
+/* ---------- Forms ---------- */
+
+label { display: block; margin-bottom: 4px; font-weight: 600; font-size: 0.85rem; }
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--hb-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+}
+
+.field { margin-bottom: var(--space-md); }
+
+/* ---------- Badges ---------- */
+
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.badge.PENDING { background: #fff3bf; color: #7a5c00; }
+.badge.PREPARING { background: #d0ebff; color: #1864ab; }
+.badge.READY { background: #d3f9d8; color: #2b8a3e; }
+.badge.COMPLETED { background: #e9ecef; color: #495057; }
+.badge.CANCELLED { background: #ffe3e3; color: #c92a2a; }
+
+/* ---------- Footer ---------- */
+
+.hb-footer {
+  background: var(--hb-black);
+  color: var(--hb-white);
+  padding: 22px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  border-top: 1px solid var(--hb-border-dark);
+}
+
+.hb-footer-brand { font-family: var(--font-display); font-size: 0.95rem; }
+.hb-footer-copy { font-size: 0.75rem; color: var(--hb-gray); }
+.hb-footer-links { display: flex; gap: 20px; }
+.hb-footer-links a { font-size: 0.75rem; color: var(--hb-gray); }
+.hb-footer-links a:hover { color: var(--hb-white); }
+
+@media (max-width: 640px) {
+  .hb-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 20px;
+  }
+}
