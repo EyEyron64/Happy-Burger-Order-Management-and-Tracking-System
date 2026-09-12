@@ -34,6 +34,8 @@ const PAYMENT_METHOD = {
   GCASH: "GCASH",
 };
 
+const DELIVERY_FEE = 50;
+
 const ADMIN_CREDENTIALS = {
   username: "admin",
   password: "burger123",
