@@ -1,20 +1,26 @@
 :root {
+  /* Colors */
   --hb-black: #111111;
   --hb-white: #ffffff;
   --hb-gray: #b9b9b9;
   --hb-gray-dark: #6b6b6b;
   --hb-border: #e6e6e6;
   --hb-border-dark: #1f1f1f;
+  --hb-yellow: #f4b400;
+  --hb-yellow-dark: #d99e00;
 
+  /* Type */
   --font-display: "Archivo Black", sans-serif;
   --font-body: "Inter", -apple-system, sans-serif;
 
+  /* Spacing scale */
   --space-xs: 8px;
   --space-sm: 12px;
   --space-md: 20px;
   --space-lg: 32px;
   --space-xl: 48px;
 
+  /* Radius */
   --radius-sm: 4px;
   --radius-md: 8px;
 }

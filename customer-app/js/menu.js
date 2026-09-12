@@ -1,6 +1,11 @@
+// customer-app/js/menu.js
+// Renders the full menu catalog on menu.html by reading directly from
+// shared storage. Clicking a card's button opens the product detail page.
+
 function initMenuPage() {
   seedMenuIfEmpty();
   renderMenu();
+  Storage.onExternalChange(renderMenu);
 }
 
 function renderMenu() {
@@ -24,21 +29,16 @@ function renderMenu() {
           <span class="menu-card-price">${formatCurrency(item.price)}</span>
         </div>
         <p>${escapeHtml(item.description)}</p>
-        <button class="btn-cart" data-add="${item.id}">🍴 Add to Cart</button>
+        <button class="btn-cart" data-view="${item.id}">🍴 Add to Cart</button>
       </div>
     </article>
   `
     )
     .join("");
 
-  qsa("[data-add]", grid).forEach((btn) => {
+  qsa("[data-view]", grid).forEach((btn) => {
     btn.addEventListener("click", () => {
-      const item = Storage.getMenuItems().find((i) => i.id === btn.dataset.add);
-      if (!item) return;
-      Cart.addItem(item, 1);
-      const original = btn.innerHTML;
-      btn.textContent = "Added ✓";
-      setTimeout(() => (btn.innerHTML = original), 800);
+      window.location.href = `product.html?id=${encodeURIComponent(btn.dataset.view)}`;
     });
   });
 }

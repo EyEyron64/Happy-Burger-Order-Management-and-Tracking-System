@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Happy Burger — Cart</title>
+<title>Happy Burger — Product</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/style.css" />
-<link rel="stylesheet" href="css/cart.css" />
+<link rel="stylesheet" href="css/product.css" />
 </head>
 <body>
 
@@ -16,42 +16,19 @@
   <a href="index.html" class="hb-logo">HAPPY BURGER</a>
   <nav class="hb-nav">
     <a href="index.html">Home</a>
-    <a href="menu.html">Menu</a>
-    <a href="cart.html" class="active">Cart</a>
+    <a href="menu.html" class="active">Menu</a>
+    <a href="cart.html">Cart</a>
   </nav>
 </header>
 
-<main class="cart-page container">
-  <h2>Your Cart</h2>
+<nav class="product-breadcrumb container">
+  <a href="menu.html">Menu</a>
+  <span>›</span>
+  <span id="breadcrumb-name">Product</span>
+</nav>
 
-  <div class="cart-layout">
-    <div class="cart-items-col" id="cart-items-col">
-      <!-- Cart line cards injected by cart-page.js -->
-    </div>
-
-    <aside class="order-summary-col">
-      <div class="order-summary-card">
-        <h3>Order Summary</h3>
-        <hr class="product-divider" />
-
-        <div class="summary-row">
-          <span>Subtotal</span>
-          <span id="summary-subtotal">₱0.00</span>
-        </div>
-
-        <hr class="product-divider" />
-
-        <div class="summary-row summary-total">
-          <span>Total</span>
-          <span id="summary-total">₱0.00</span>
-        </div>
-
-        <a href="checkout.html" class="btn-checkout" id="checkout-btn">
-          Proceed to Checkout →
-        </a>
-      </div>
-    </aside>
-  </div>
+<main class="product-layout container" id="product-layout">
+  <!-- Filled in by product.js -->
 </main>
 
 <footer class="hb-footer">
@@ -69,6 +46,6 @@
 <script src="../shared/data-models.js"></script>
 <script src="../shared/storage.js"></script>
 <script src="js/cart.js"></script>
-<script src="js/cart-page.js"></script>
+<script src="js/product.js"></script>
 </body>
 </html>

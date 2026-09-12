@@ -1,3 +1,6 @@
+// shared/constants.js
+// Single source of truth for localStorage keys and enums.
+
 const STORAGE_KEYS = {
   MENU_ITEMS: "bs_menuItems",
   ORDERS: "bs_orders",
@@ -19,6 +22,17 @@ const ORDER_STATUS_FLOW = [
   ORDER_STATUS.READY,
   ORDER_STATUS.COMPLETED,
 ];
+
+const FULFILLMENT_METHOD = {
+  PICKUP: "PICKUP",
+  MEETUP: "MEETUP",
+  DELIVERY: "DELIVERY",
+};
+
+const PAYMENT_METHOD = {
+  CASH: "CASH",
+  GCASH: "GCASH",
+};
 
 const ADMIN_CREDENTIALS = {
   username: "admin",
