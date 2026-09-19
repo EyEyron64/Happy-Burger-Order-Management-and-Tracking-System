@@ -5,7 +5,7 @@ function seedMenuIfEmpty() {
   const defaults = [
     createMenuItem({
       name: "Classic Burger",
-      description: "Two smashed angus beef patties, double American cheese, house pickles, crisp iceberg, and signature sauce on a toasted brioche bun.",
+      description: "Two smashed angus beef patties with double American cheese",
       price: 50,
       image: "assets/images/classic-burger.jpg",
     }),
@@ -13,25 +13,25 @@ function seedMenuIfEmpty() {
       name: "Double Bacon Stack",
       description: "Two patties, bacon, cheddar, caramelized onions.",
       price: 90,
-      image: "assets/images/double-bacon.jpg",
+      image: "assets/images/doubl",
     }),
     createMenuItem({
       name: "Veggie Burger",
       description: "Grilled plant-based patty, avocado, sprouts.",
       price: 75,
-      image: "assets/images/veggie-burger.jpg",
+      image: "assets/images/veggie",
     }),
     createMenuItem({
       name: "Crispy Fries",
       description: "Golden fries, lightly salted.",
       price: 30,
-      image: "assets/images/fries.jpg",
+      image: "assets/image",
     }),
     createMenuItem({
       name: "Chocolate Shake",
       description: "Thick, creamy, topped with whipped cream.",
       price: 45,
-      image: "assets/images/choc-shake.jpg",
+      image: "assets/images/cho",
     }),
   ];
 

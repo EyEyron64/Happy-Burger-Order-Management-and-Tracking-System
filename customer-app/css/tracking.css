@@ -1,0 +1,219 @@
+/* tracking.css — page-specific styles for tracking.html.
+   Relies on style.css for header, footer, badges, and type. */
+
+.tracking-page {
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-xl);
+}
+
+/* ---------- Header row ---------- */
+
+.tracking-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-lg);
+}
+
+.tracking-header-row h1 {
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+}
+
+.tracking-subtext {
+  font-size: 0.88rem;
+  color: var(--hb-gray-dark);
+}
+
+/* ---------- Layout ---------- */
+
+.tracking-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-lg);
+}
+
+.tracking-left-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.tracking-right-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.tracking-card {
+  border: 1px solid var(--hb-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+/* ---------- Status stepper ---------- */
+
+.status-stepper {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding-top: var(--space-sm);
+}
+
+.status-stepper::before {
+  content: "";
+  position: absolute;
+  top: 32px;
+  left: 30px;
+  right: 30px;
+  height: 2px;
+  background: var(--hb-border);
+  z-index: 0;
+}
+
+.status-stepper .step-progress-line {
+  position: absolute;
+  top: 32px;
+  left: 30px;
+  height: 2px;
+  background: var(--hb-black);
+  z-index: 1;
+  transition: width 0.3s ease;
+}
+
+.status-step {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+}
+
+.status-step-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--hb-white);
+  border: 2px solid var(--hb-border);
+  color: var(--hb-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+.status-step.done .status-step-circle {
+  background: var(--hb-black);
+  border-color: var(--hb-black);
+  color: var(--hb-white);
+}
+
+.status-step-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--hb-gray-dark);
+}
+
+.status-step.done .status-step-label {
+  color: var(--hb-black);
+}
+
+.status-step-time {
+  font-size: 0.72rem;
+  color: var(--hb-gray);
+}
+
+/* ---------- Order summary ---------- */
+
+.tracking-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: var(--space-sm);
+}
+
+.tracking-item-row {
+  display: flex;
+  gap: var(--space-sm);
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--hb-border);
+}
+
+.tracking-item-row:last-of-type { border-bottom: none; }
+
+.tracking-item-row img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  background: #f1f1f1;
+  flex-shrink: 0;
+}
+
+.tracking-item-main {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+.tracking-item-name { font-weight: 700; font-size: 0.9rem; }
+.tracking-item-notes { font-size: 0.78rem; color: var(--hb-gray-dark); }
+.tracking-item-qty { font-size: 0.78rem; color: var(--hb-gray-dark); text-align: right; }
+.tracking-item-price { font-size: 0.9rem; text-align: right; white-space: nowrap; }
+
+.tracking-summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  margin: 6px 0;
+}
+
+.tracking-summary-total {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  border-top: 1px solid var(--hb-border);
+  padding-top: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+/* ---------- Map card ---------- */
+
+.tracking-map-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.tracking-map-card img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #dcdcdc;
+}
+
+/* ---------- Fulfillment info card ---------- */
+
+.fulfillment-info-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+.fulfillment-info-icon { font-size: 1.3rem; }
+.fulfillment-info-title { font-weight: 700; font-size: 0.9rem; }
+.fulfillment-info-desc { font-size: 0.82rem; color: var(--hb-gray-dark); }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 800px) {
+  .tracking-layout { flex-direction: column; }
+}
+
+@media (max-width: 640px) {
+  .status-step-label { font-size: 0.72rem; }
+}
