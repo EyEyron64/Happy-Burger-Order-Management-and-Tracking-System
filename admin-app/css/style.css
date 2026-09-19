@@ -1,3 +1,10 @@
+/* ==========================================================================
+   Admin App — Global Design System
+   Mirrors customer-app/css/style.css so both apps feel like one product.
+   Every page in admin-app/ should link this file FIRST, then its own
+   page-specific stylesheet for anything unique to that page.
+   ========================================================================== */
+
 :root {
   --hb-black: #111111;
   --hb-white: #ffffff;
@@ -52,38 +59,6 @@ h1, h2, h3 {
   .container { padding: 0 20px; }
 }
 
-/* ---------- Header (for dashboard/orders pages later) ---------- */
-
-.hb-header {
-  background: var(--hb-white);
-  border-bottom: 1px solid var(--hb-border);
-  padding: 22px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.hb-logo {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-}
-
-.hb-nav { display: flex; gap: 28px; }
-
-.hb-nav a {
-  font-size: 0.92rem;
-  font-weight: 500;
-  color: #333;
-  padding-bottom: 4px;
-  border-bottom: 2px solid transparent;
-}
-
-.hb-nav a.active {
-  color: var(--hb-black);
-  font-weight: 600;
-  border-bottom-color: var(--hb-black);
-}
-
 /* ---------- Buttons ---------- */
 
 .hb-btn {
@@ -122,7 +97,7 @@ input, textarea, select {
 
 .field { margin-bottom: var(--space-md); }
 
-/* ---------- Badges (for orders page later) ---------- */
+/* ---------- Badges ---------- */
 
 .badge {
   display: inline-block;
@@ -138,3 +113,174 @@ input, textarea, select {
 .badge.READY { background: #d3f9d8; color: #2b8a3e; }
 .badge.COMPLETED { background: #e9ecef; color: #495057; }
 .badge.CANCELLED { background: #ffe3e3; color: #c92a2a; }
+
+/* ==========================================================================
+   Admin Shell — sidebar + topbar layout used by every logged-in admin page
+   (dashboard.html, orders.html, order-detail.html, etc.)
+   ========================================================================== */
+
+.admin-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ---------- Sidebar ---------- */
+
+.admin-sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background: var(--hb-white);
+  border-right: 1px solid var(--hb-border);
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-md);
+}
+
+.admin-sidebar-brand {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  padding: var(--space-sm) var(--space-sm) var(--space-lg);
+}
+
+.admin-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--hb-gray-dark);
+}
+
+.admin-sidebar-nav a:hover { background: var(--hb-bg); }
+
+.admin-sidebar-nav a.active {
+  background: var(--hb-bg);
+  color: var(--hb-black);
+  border-right: 3px solid var(--hb-yellow);
+}
+
+.nav-icon { font-size: 1rem; }
+
+.admin-sidebar-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: var(--space-md);
+}
+
+.cosmetic-link {
+  font-size: 0.82rem;
+  color: var(--hb-gray-dark);
+  padding: 6px 12px;
+}
+
+.cosmetic-link:hover { color: var(--hb-black); }
+
+/* ---------- Main column ---------- */
+
+.admin-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* ---------- Top bar ---------- */
+
+.admin-topbar {
+  background: var(--hb-white);
+  border-bottom: 1px solid var(--hb-border);
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-topbar-title {
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.admin-topbar-icons {
+  display: flex;
+  gap: 8px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: var(--radius-sm);
+}
+
+.icon-btn:hover { background: var(--hb-bg); }
+
+/* ---------- Content area ---------- */
+
+.admin-content {
+  padding: var(--space-lg);
+  flex: 1;
+}
+
+.admin-page-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-lg);
+}
+
+.admin-page-heading h1 {
+  font-size: 1.5rem;
+  margin-bottom: 2px;
+}
+
+.admin-clock {
+  font-size: 0.82rem;
+  color: var(--hb-gray-dark);
+}
+
+/* ---------- Reusable search box (dashboard, orders, etc.) ---------- */
+
+.admin-search-box {
+  position: relative;
+}
+
+.admin-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.85rem;
+  pointer-events: none;
+}
+
+.admin-search-box input {
+  padding-left: 36px;
+  background: var(--hb-white);
+}
+
+/* ---------- Responsive shell ---------- */
+
+@media (max-width: 800px) {
+  .admin-shell { flex-direction: column; }
+  .admin-sidebar {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    border-right: none;
+    border-bottom: 1px solid var(--hb-border);
+  }
+  .admin-sidebar-brand { padding: 0 var(--space-md) 0 0; }
+  .admin-sidebar-footer { display: none; }
+}

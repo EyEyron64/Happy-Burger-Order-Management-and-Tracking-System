@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Happy Burger Management — Orders</title>
+<title>Happy Burger Management — Order Detail</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/style.css" />
-<link rel="stylesheet" href="css/orders.css" />
+<link rel="stylesheet" href="css/order-detail.css" />
 </head>
 <body>
 
@@ -43,43 +43,8 @@
       </div>
     </header>
 
-    <main class="admin-content">
-
-      <div class="admin-page-heading">
-        <div>
-          <h1>Active Orders</h1>
-          <p class="text-muted">Manage and track current kitchen tickets.</p>
-        </div>
-      </div>
-
-      <div class="orders-toolbar">
-        <div class="orders-tabs" id="orders-tabs">
-          <!-- Tab buttons injected by orders.js -->
-        </div>
-        <div class="admin-search-box">
-          <span class="admin-search-icon">🔍</span>
-          <input type="text" placeholder="Search orders…" id="orders-search-input" />
-        </div>
-      </div>
-
-      <div class="orders-table-card">
-        <table class="orders-table">
-          <thead>
-            <tr>
-              <th>Order #</th>
-              <th>Items</th>
-              <th>Fulfillment</th>
-              <th>Time</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody id="orders-table-body">
-            <!-- Rows injected by orders.js -->
-          </tbody>
-        </table>
-        <div class="orders-empty" id="orders-empty" style="display:none;">No orders match this view.</div>
-      </div>
-
+    <main class="admin-content" id="order-detail-content">
+      <!-- Filled in by order-detail.js -->
     </main>
   </div>
 </div>
@@ -87,6 +52,6 @@
 <script src="../shared/constants.js"></script>
 <script src="../shared/utils.js"></script>
 <script src="../shared/storage.js"></script>
-<script src="js/orders.js"></script>
+<script src="js/order-detail.js"></script>
 </body>
 </html>

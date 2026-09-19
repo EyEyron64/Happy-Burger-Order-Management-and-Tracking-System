@@ -22,7 +22,7 @@ function fulfillmentLabel(method) {
 
 function shortOrderNumber(id) {
   const digitsOnly = id.replace(/\D/g, "");
-  return `#${digitsOnly.slice(-3) || id}`;
+  return `#${digitsOnly.slice(-4) || id}`;
 }
 
 function updateClock() {
