@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Happy Burger Admin — Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/login.css" />
+</head>
+<body>
+
+<main class="login-page">
+  <h1 class="login-brand">HappyBurger</h1>
+  <p class="login-subtitle">Staff Management Portal</p>
+
+  <div class="login-card">
+    <h3>System Login</h3>
+
+    <form id="login-form">
+      <div class="field">
+        <label for="staffId">Staff ID</label>
+        <div class="input-with-icon">
+          <span class="input-icon">🪪</span>
+          <input type="text" id="staffId" inputmode="numeric" maxlength="6" placeholder="Enter 6-digit ID" required />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="securityPin">Security PIN</label>
+        <div class="input-with-icon">
+          <span class="input-icon">🔒</span>
+          <input type="password" id="securityPin" inputmode="numeric" maxlength="6" placeholder="••••••" required />
+        </div>
+      </div>
+
+      <button type="submit" class="btn-authenticate">Authenticate →</button>
+    </form>
+  </div>
+</main>
+
+<script src="js/auth.js"></script>
+</body>
+</html>

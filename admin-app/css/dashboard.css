@@ -1,0 +1,281 @@
+/* dashboard.css — page-specific styles for dashboard.html.
+   Relies on style.css for design tokens, badges, and type. */
+
+.admin-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ---------- Sidebar ---------- */
+
+.admin-sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background: var(--hb-white);
+  border-right: 1px solid var(--hb-border);
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-md);
+}
+
+.admin-sidebar-brand {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  padding: var(--space-sm) var(--space-sm) var(--space-lg);
+}
+
+.admin-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--hb-gray-dark);
+}
+
+.admin-sidebar-nav a:hover { background: var(--hb-bg); }
+
+.admin-sidebar-nav a.active {
+  background: var(--hb-bg);
+  color: var(--hb-black);
+  border-right: 3px solid var(--hb-yellow);
+}
+
+.nav-icon { font-size: 1rem; }
+
+.admin-sidebar-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: var(--space-md);
+}
+
+.cosmetic-link {
+  font-size: 0.82rem;
+  color: var(--hb-gray-dark);
+  padding: 6px 12px;
+}
+
+.cosmetic-link:hover { color: var(--hb-black); }
+
+/* ---------- Main column ---------- */
+
+.admin-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* ---------- Top bar ---------- */
+
+.admin-topbar {
+  background: var(--hb-white);
+  border-bottom: 1px solid var(--hb-border);
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-topbar-title {
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.admin-topbar-icons {
+  display: flex;
+  gap: 8px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: var(--radius-sm);
+}
+
+.icon-btn:hover { background: var(--hb-bg); }
+
+/* ---------- Content area ---------- */
+
+.admin-content {
+  padding: var(--space-lg);
+  flex: 1;
+}
+
+/* Search row — deliberately placed here rather than the top bar */
+
+.admin-search-row { margin-bottom: var(--space-lg); }
+
+.admin-search-box {
+  position: relative;
+  max-width: 360px;
+}
+
+.admin-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.85rem;
+  pointer-events: none;
+}
+
+.admin-search-box input {
+  padding-left: 36px;
+  background: var(--hb-white);
+}
+
+.admin-page-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-lg);
+}
+
+.admin-page-heading h1 {
+  font-size: 1.5rem;
+  margin-bottom: 2px;
+}
+
+.admin-clock {
+  font-size: 0.82rem;
+  color: var(--hb-gray-dark);
+}
+
+/* ---------- Stat cards ---------- */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.stat-card {
+  background: var(--hb-white);
+  border: 1px solid var(--hb-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.stat-card-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--hb-gray-dark);
+  text-transform: uppercase;
+  margin-bottom: var(--space-sm);
+}
+
+.stat-card-value {
+  font-family: var(--font-display);
+  font-size: 2rem;
+}
+
+@media (max-width: 900px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ---------- Live Queue ---------- */
+
+.queue-card {
+  background: var(--hb-white);
+  border: 1px solid var(--hb-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.queue-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-sm);
+}
+
+.queue-card-header h3 { margin: 0; font-size: 1rem; }
+
+.view-all-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--hb-black);
+}
+.view-all-link:hover { text-decoration: underline; }
+
+.queue-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-sm) 0;
+  border-top: 1px solid var(--hb-border);
+}
+
+.queue-row:first-child { border-top: none; }
+
+.queue-row-id {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  width: 52px;
+  flex-shrink: 0;
+}
+
+.queue-row-main { flex: 1; min-width: 0; }
+
+.queue-row-items {
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.queue-row-meta {
+  font-size: 0.78rem;
+  color: var(--hb-gray-dark);
+}
+
+.queue-row-more {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: var(--hb-gray-dark);
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.queue-empty {
+  padding: var(--space-lg) 0;
+  text-align: center;
+  color: var(--hb-gray-dark);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 800px) {
+  .admin-shell { flex-direction: column; }
+  .admin-sidebar {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    border-right: none;
+    border-bottom: 1px solid var(--hb-border);
+  }
+  .admin-sidebar-brand { padding: 0 var(--space-md) 0 0; }
+  .admin-sidebar-footer { display: none; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+}

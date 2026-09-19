@@ -1,0 +1,140 @@
+:root {
+  --hb-black: #111111;
+  --hb-white: #ffffff;
+  --hb-gray: #b9b9b9;
+  --hb-gray-dark: #6b6b6b;
+  --hb-border: #e6e6e6;
+  --hb-border-dark: #1f1f1f;
+  --hb-yellow: #f4b400;
+  --hb-yellow-dark: #d99e00;
+  --hb-bg: #f7f8fa;
+
+  --font-display: "Archivo Black", sans-serif;
+  --font-body: "Inter", -apple-system, sans-serif;
+
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 20px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--hb-black);
+  background: var(--hb-bg);
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  margin: 0 0 var(--space-md);
+  line-height: 1.05;
+}
+
+.text-muted { color: var(--hb-gray-dark); }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+@media (max-width: 640px) {
+  .container { padding: 0 20px; }
+}
+
+/* ---------- Header (for dashboard/orders pages later) ---------- */
+
+.hb-header {
+  background: var(--hb-white);
+  border-bottom: 1px solid var(--hb-border);
+  padding: 22px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hb-logo {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+}
+
+.hb-nav { display: flex; gap: 28px; }
+
+.hb-nav a {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #333;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+}
+
+.hb-nav a.active {
+  color: var(--hb-black);
+  font-weight: 600;
+  border-bottom-color: var(--hb-black);
+}
+
+/* ---------- Buttons ---------- */
+
+.hb-btn {
+  display: inline-block;
+  background: var(--hb-black);
+  color: var(--hb-white);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 14px 28px;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.hb-btn:hover { background: #2a2a2a; }
+
+.hb-btn.yellow {
+  background: var(--hb-yellow);
+  color: var(--hb-black);
+}
+.hb-btn.yellow:hover { background: var(--hb-yellow-dark); }
+
+/* ---------- Forms ---------- */
+
+label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 0.85rem; }
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--hb-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+}
+
+.field { margin-bottom: var(--space-md); }
+
+/* ---------- Badges (for orders page later) ---------- */
+
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.badge.PENDING { background: #fff3bf; color: #7a5c00; }
+.badge.PREPARING { background: #d0ebff; color: #1864ab; }
+.badge.READY { background: #d3f9d8; color: #2b8a3e; }
+.badge.COMPLETED { background: #e9ecef; color: #495057; }
+.badge.CANCELLED { background: #ffe3e3; color: #c92a2a; }

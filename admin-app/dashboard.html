@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Happy Burger Management — Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+
+<div class="admin-shell">
+
+  <aside class="admin-sidebar">
+    <div class="admin-sidebar-brand">HAPPY BURGER</div>
+
+    <nav class="admin-sidebar-nav">
+      <a href="dashboard.html" class="active">
+        <span class="nav-icon">▦</span> Dashboard
+      </a>
+      <a href="orders.html">
+        <span class="nav-icon">📋</span> Orders
+      </a>
+    </nav>
+
+    <div class="admin-sidebar-footer">
+      <a href="#" class="cosmetic-link" onclick="event.preventDefault();">🛟 Support</a>
+      <a href="#" class="cosmetic-link" onclick="event.preventDefault();">❓ Help Center</a>
+    </div>
+  </aside>
+
+  <div class="admin-main">
+
+    <header class="admin-topbar">
+      <h2 class="admin-topbar-title">Happy Burger Management</h2>
+      <div class="admin-topbar-icons">
+        <button class="icon-btn" onclick="event.preventDefault();" title="Notifications">🔔</button>
+        <button class="icon-btn" onclick="event.preventDefault();" title="Account">👤</button>
+        <button class="icon-btn" onclick="event.preventDefault();" title="Settings">⚙️</button>
+      </div>
+    </header>
+
+    <main class="admin-content">
+
+      <div class="admin-page-heading">
+        <div>
+          <h1>Today's Overview</h1>
+          <p class="text-muted">Live metrics for Happy Burger</p>
+        </div>
+        <div class="admin-clock" id="admin-clock"></div>
+      </div>
+
+      <div class="stats-grid" id="stats-grid">
+        <!-- Stat cards injected by dashboard.js -->
+      </div>
+
+      <div class="queue-card">
+        <div class="queue-card-header">
+          <h3>Live Queue</h3>
+          <a href="orders.html" class="view-all-link">View All →</a>
+        </div>
+        <div id="live-queue-list">
+          <!-- Queue rows injected by dashboard.js -->
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="../shared/constants.js"></script>
+<script src="../shared/utils.js"></script>
+<script src="../shared/storage.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>
