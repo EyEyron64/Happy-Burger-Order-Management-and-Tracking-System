@@ -105,7 +105,7 @@ function renderTracking() {
     order.fulfillmentMethod === "DELIVERY"
       ? `
       <div class="tracking-card tracking-map-card">
-        <img src="assets/images/delivery-map.jpg" alt="Delivery route map" onerror="this.style.display='none'" />
+        <img src="../assets/images/delivery-map.jpg" alt="Delivery route map" onerror="this.style.display='none'" />
       </div>
       <div class="tracking-card fulfillment-info-card">
         <span class="fulfillment-info-icon">${info.icon}</span>
