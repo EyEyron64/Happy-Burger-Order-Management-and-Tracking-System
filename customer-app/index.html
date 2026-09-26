@@ -15,7 +15,10 @@
 
   <header class="hb-header">
     <a href="index.html" class="hb-logo">HAPPY BURGER</a>
-    <nav class="hb-nav">
+    <button class="hb-burger-btn" id="hb-burger-btn" aria-label="Toggle navigation" aria-expanded="false">
+      <i data-lucide="menu"></i>
+    </button>
+    <nav class="hb-nav" id="hb-nav">
       <a href="index.html" class="active">Home</a>
       <a href="menu.html">Menu</a>
       <a href="cart.html">Cart</a>
@@ -48,6 +51,7 @@
   </footer>
 
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/nav.js"></script>
   <script>lucide.createIcons();</script>
 </body>
 

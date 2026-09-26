@@ -14,7 +14,14 @@
 
 <header class="hb-header">
   <a href="index.html" class="hb-logo">HAPPY BURGER</a>
-  <a href="menu.html" class="back-link">← Back to Menu</a>
+  <button class="hb-burger-btn" id="hb-burger-btn" aria-label="Toggle navigation" aria-expanded="false">
+    <i data-lucide="menu"></i>
+  </button>
+  <nav class="hb-nav" id="hb-nav">
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="cart.html">Cart</a>
+  </nav>
 </header>
 
 <main class="checkout-page container">
@@ -129,6 +136,7 @@
 </footer>
 
 <script src="https://unpkg.com/lucide@latest"></script>
+<script src="js/nav.js"></script>
 <script src="../shared/constants.js"></script>
 <script src="../shared/utils.js"></script>
 <script src="../shared/data-models.js"></script>
