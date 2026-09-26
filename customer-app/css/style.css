@@ -25,6 +25,17 @@
   --radius-md: 8px;
 }
 
+/* Lucide Icon helper alignment */
+i[data-lucide], .icon-lucide {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+  stroke-width: 2;
+}
+
 * { box-sizing: border-box; }
 
 body {
@@ -108,7 +119,10 @@ p { line-height: 1.6; color: var(--hb-black); }
 /* ---------- Buttons ---------- */
 
 .hb-btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   background: var(--hb-black);
   color: var(--hb-white);
   font-size: 0.85rem;

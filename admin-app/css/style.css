@@ -29,6 +29,17 @@
   --radius-md: 8px;
 }
 
+/* Lucide Icon helper alignment */
+i[data-lucide], .icon-lucide {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+  stroke-width: 2;
+}
+
 * { box-sizing: border-box; }
 
 body {
@@ -167,7 +178,12 @@ input, textarea, select {
   border-right: 3px solid var(--hb-yellow);
 }
 
-.nav-icon { font-size: 1rem; }
+.nav-icon {
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .admin-sidebar-footer {
   margin-top: auto;
@@ -181,6 +197,9 @@ input, textarea, select {
   font-size: 0.82rem;
   color: var(--hb-gray-dark);
   padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .cosmetic-link:hover { color: var(--hb-black); }
@@ -218,10 +237,14 @@ input, textarea, select {
 .icon-btn {
   background: none;
   border: none;
-  font-size: 1rem;
+  font-size: 1.1rem;
   cursor: pointer;
   padding: 6px;
   border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--hb-black);
 }
 
 .icon-btn:hover { background: var(--hb-bg); }
@@ -248,6 +271,9 @@ input, textarea, select {
 .admin-clock {
   font-size: 0.82rem;
   color: var(--hb-gray-dark);
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 /* ---------- Reusable search box (dashboard, orders, etc.) ---------- */
@@ -261,8 +287,12 @@ input, textarea, select {
   left: 12px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--hb-gray-dark);
 }
 
 .admin-search-box input {

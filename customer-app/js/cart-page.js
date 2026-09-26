@@ -38,13 +38,17 @@ function renderCartPage() {
                 <span>${line.qty}</span>
                 <button data-increase type="button">+</button>
               </div>
-              <button class="remove-link" data-remove type="button">🗑 Remove</button>
+              <button class="remove-link" data-remove type="button"><i data-lucide="trash-2"></i> Remove</button>
             </div>
           </div>
         </div>
       `;
       })
       .join("");
+
+    if (window.lucide) {
+      lucide.createIcons();
+    }
 
     // Attach handlers per card, keyed by index so we don't need notes in a data-attribute.
     const cards = qsa(".cart-item-card", itemsCol);

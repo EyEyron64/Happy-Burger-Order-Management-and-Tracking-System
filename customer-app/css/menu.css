@@ -97,6 +97,10 @@
   font-size: 0.88rem;
   font-weight: 700;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .btn-cart:hover { background: var(--hb-yellow-dark); }

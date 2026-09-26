@@ -28,7 +28,8 @@ function shortOrderNumber(id) {
 function updateClock() {
   const el = document.getElementById("admin-clock");
   if (el) {
-    el.textContent = "🕐 " + new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    el.innerHTML = `<i data-lucide="clock" style="width: 14px; height: 14px;"></i> ` + new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    if (window.lucide) lucide.createIcons();
   }
 }
 
@@ -45,17 +46,17 @@ function renderStats() {
   });
 
   const cards = [
-    { label: "Pending", value: counts.PENDING, icon: "⏳" },
-    { label: "Preparing", value: counts.PREPARING, icon: "👨‍🍳" },
-    { label: "Ready", value: counts.READY, icon: "✅" },
-    { label: "Completed", value: counts.COMPLETED, icon: "📦" },
+    { label: "Pending", value: counts.PENDING, icon: "hourglass" },
+    { label: "Preparing", value: counts.PREPARING, icon: "chef-hat" },
+    { label: "Ready", value: counts.READY, icon: "check-circle" },
+    { label: "Completed", value: counts.COMPLETED, icon: "package" },
   ];
 
   document.getElementById("stats-grid").innerHTML = cards
     .map(
       (c) => `
     <div class="stat-card">
-      <div class="stat-card-label"><span>${c.label}</span><span>${c.icon}</span></div>
+      <div class="stat-card-label"><span>${c.label}</span><i data-lucide="${c.icon}" style="width: 16px; height: 16px;"></i></div>
       <div class="stat-card-value">${c.value}</div>
     </div>
   `
@@ -87,7 +88,7 @@ function renderLiveQueue() {
           <div class="queue-row-meta">${fulfillmentLabel(o.fulfillmentMethod)} · ${timeAgo(o.createdAt)}</div>
         </div>
         <span class="badge ${o.status}">${o.status}</span>
-        <button class="queue-row-more" onclick="event.preventDefault();" title="More options">⋯</button>
+        <button class="queue-row-more" onclick="event.preventDefault();" title="More options"><i data-lucide="more-horizontal" style="width:16px;height:16px;"></i></button>
       </div>
     `;
     })
@@ -97,6 +98,9 @@ function renderLiveQueue() {
 function renderDashboard() {
   renderStats();
   renderLiveQueue();
+  if (window.lucide) {
+    lucide.createIcons();
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {

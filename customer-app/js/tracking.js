@@ -4,10 +4,10 @@
 // so admin status updates in another tab reflect here without a refresh.
 
 const STATUS_STEPS = [
-  { key: "PENDING", label: "Pending", icon: "✓" },
-  { key: "PREPARING", label: "Preparing", icon: "👨‍🍳" },
-  { key: "READY", label: "Ready", icon: "🛍" },
-  { key: "COMPLETED", label: "Completed", icon: "🏁" },
+  { key: "PENDING", label: "Pending", icon: "clock" },
+  { key: "PREPARING", label: "Preparing", icon: "chef-hat" },
+  { key: "READY", label: "Ready", icon: "shopping-bag" },
+  { key: "COMPLETED", label: "Completed", icon: "check-circle" },
 ];
 
 function shortOrderNumber(id) {
@@ -22,12 +22,12 @@ function findMenuItem(menuItemId) {
 function fulfillmentInfo(order) {
   switch (order.fulfillmentMethod) {
     case "DELIVERY":
-      return { icon: "🛵", title: "Out for Delivery", desc: "Your order will be delivered to you shortly." };
+      return { icon: "bike", title: "Out for Delivery", desc: "Your order will be delivered to you shortly." };
     case "MEETUP":
-      return { icon: "🤝", title: "Meet-up", desc: "Please head to the agreed meet-up location once your order is ready." };
+      return { icon: "users", title: "Meet-up", desc: "Please head to the agreed meet-up location once your order is ready." };
     case "PICKUP":
     default:
-      return { icon: "🏬", title: "Pick-up at Store", desc: "Collect your order at the store counter once it's ready." };
+      return { icon: "store", title: "Pick-up at Store", desc: "Collect your order at the store counter once it's ready." };
   }
 }
 
@@ -47,9 +47,13 @@ function renderStepper(order) {
     if (i === 0) time = formatDate(order.createdAt);
     else if (i === currentIndex) time = formatDate(order.updatedAt);
 
+    const iconHtml = done
+      ? `<i data-lucide="check" style="width:16px;height:16px;"></i>`
+      : `<i data-lucide="${step.icon}" style="width:16px;height:16px;"></i>`;
+
     return `
       <div class="status-step ${done ? "done" : ""}">
-        <div class="status-step-circle">${done ? "✓" : step.icon}</div>
+        <div class="status-step-circle">${iconHtml}</div>
         <div class="status-step-label">${step.label}</div>
         <div class="status-step-time">${time}</div>
       </div>
@@ -108,7 +112,7 @@ function renderTracking() {
         <img src="../assets/images/delivery-map.jpg" alt="Delivery route map" onerror="this.style.display='none'" />
       </div>
       <div class="tracking-card fulfillment-info-card">
-        <span class="fulfillment-info-icon">${info.icon}</span>
+        <span class="fulfillment-info-icon"><i data-lucide="${info.icon}"></i></span>
         <div>
           <div class="fulfillment-info-title">${info.title}</div>
           <div class="fulfillment-info-desc">${info.desc}</div>
@@ -117,7 +121,7 @@ function renderTracking() {
     `
       : `
       <div class="tracking-card fulfillment-info-card">
-        <span class="fulfillment-info-icon">${info.icon}</span>
+        <span class="fulfillment-info-icon"><i data-lucide="${info.icon}"></i></span>
         <div>
           <div class="fulfillment-info-title">${info.title}</div>
           <div class="fulfillment-info-desc">${info.desc}</div>
@@ -163,6 +167,10 @@ function renderTracking() {
       </div>
     </div>
   `;
+
+  if (window.lucide) {
+    lucide.createIcons();
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {

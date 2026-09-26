@@ -110,6 +110,10 @@
   font-weight: 700;
   letter-spacing: 0.02em;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .btn-add-to-cart:hover { background: var(--hb-yellow-dark); }

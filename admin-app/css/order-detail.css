@@ -30,6 +30,9 @@
   font-size: 0.78rem;
   font-weight: 600;
   color: var(--hb-gray-dark);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .order-detail-subtext {
@@ -51,6 +54,9 @@
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 .btn-print:hover { background: var(--hb-bg); }
 
@@ -63,6 +69,9 @@
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 .btn-cancel-order:hover { background: #fff5f5; }
 

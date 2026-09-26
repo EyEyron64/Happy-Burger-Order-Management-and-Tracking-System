@@ -43,11 +43,15 @@ function renderProduct() {
           <button id="qty-increase" type="button">+</button>
         </div>
         <button class="btn-add-to-cart" id="add-to-cart-btn" type="button">
-          🛒 ADD TO CART
+          <i data-lucide="shopping-cart"></i> ADD TO CART
         </button>
       </div>
     </div>
   `;
+
+  if (window.lucide) {
+    lucide.createIcons();
+  }
 
   let qty = 1;
   const qtyValueEl = document.getElementById("qty-value");

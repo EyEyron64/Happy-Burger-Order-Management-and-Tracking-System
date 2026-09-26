@@ -108,6 +108,9 @@
   font-size: 0.82rem;
   cursor: pointer;
   padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .remove-link:hover { color: #c92a2a; }

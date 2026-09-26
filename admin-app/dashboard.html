@@ -19,16 +19,16 @@
 
     <nav class="admin-sidebar-nav">
       <a href="dashboard.html" class="active">
-        <span class="nav-icon">▦</span> Dashboard
+        <span class="nav-icon"><i data-lucide="layout-dashboard"></i></span> Dashboard
       </a>
       <a href="orders.html">
-        <span class="nav-icon">📋</span> Orders
+        <span class="nav-icon"><i data-lucide="clipboard-list"></i></span> Orders
       </a>
     </nav>
 
     <div class="admin-sidebar-footer">
-      <a href="#" class="cosmetic-link" onclick="event.preventDefault();">🛟 Support</a>
-      <a href="#" class="cosmetic-link" onclick="event.preventDefault();">❓ Help Center</a>
+      <a href="#" class="cosmetic-link" onclick="event.preventDefault();"><i data-lucide="life-buoy"></i> Support</a>
+      <a href="#" class="cosmetic-link" onclick="event.preventDefault();"><i data-lucide="help-circle"></i> Help Center</a>
     </div>
   </aside>
 
@@ -37,9 +37,9 @@
     <header class="admin-topbar">
       <h2 class="admin-topbar-title">Happy Burger Management</h2>
       <div class="admin-topbar-icons">
-        <button class="icon-btn" onclick="event.preventDefault();" title="Notifications">🔔</button>
-        <button class="icon-btn" onclick="event.preventDefault();" title="Account">👤</button>
-        <button class="icon-btn" onclick="event.preventDefault();" title="Settings">⚙️</button>
+        <button class="icon-btn" onclick="event.preventDefault();" title="Notifications"><i data-lucide="bell"></i></button>
+        <button class="icon-btn" onclick="event.preventDefault();" title="Account"><i data-lucide="user"></i></button>
+        <button class="icon-btn" onclick="event.preventDefault();" title="Settings"><i data-lucide="settings"></i></button>
       </div>
     </header>
 
@@ -71,6 +71,7 @@
   </div>
 </div>
 
+<script src="https://unpkg.com/lucide@latest"></script>
 <script src="../shared/constants.js"></script>
 <script src="../shared/utils.js"></script>
 <script src="../shared/storage.js"></script>

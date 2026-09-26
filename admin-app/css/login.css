@@ -44,8 +44,12 @@
   left: 12px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 0.95rem;
+  font-size: 1rem;
   pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--hb-gray-dark);
 }
 
 .input-with-icon input {

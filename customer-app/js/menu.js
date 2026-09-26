@@ -29,12 +29,16 @@ function renderMenu() {
           <span class="menu-card-price">${formatCurrency(item.price)}</span>
         </div>
         <p>${escapeHtml(item.description)}</p>
-        <button class="btn-cart" data-view="${item.id}">🍴 Add to Cart</button>
+        <button class="btn-cart" data-view="${item.id}"><i data-lucide="utensils"></i> Add to Cart</button>
       </div>
     </article>
   `
     )
     .join("");
+
+  if (window.lucide) {
+    lucide.createIcons();
+  }
 
   qsa("[data-view]", grid).forEach((btn) => {
     btn.addEventListener("click", () => {

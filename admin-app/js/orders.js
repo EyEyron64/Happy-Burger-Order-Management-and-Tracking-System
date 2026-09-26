@@ -114,6 +114,9 @@ function renderOrders() {
   const orders = Storage.getOrders();
   renderTabs(orders);
   renderTable(orders);
+  if (window.lucide) {
+    lucide.createIcons();
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -122,6 +125,9 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("orders-search-input").addEventListener("input", (e) => {
     searchQuery = e.target.value.trim();
     renderTable(Storage.getOrders());
+    if (window.lucide) {
+      lucide.createIcons();
+    }
   });
 
   // Live update when a customer places a new order in another tab.

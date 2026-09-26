@@ -3,7 +3,7 @@ function generateId(prefix) {
 }
 
 function formatCurrency(amount) {
-  return `$${Number(amount).toFixed(2)}`;
+  return `₱${Number(amount).toFixed(2)}`;
 }
 
 function formatDate(isoString) {

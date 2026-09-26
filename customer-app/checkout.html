@@ -26,7 +26,7 @@
     <div class="checkout-form-col">
 
       <section class="checkout-section">
-        <h3>👤 Contact Information</h3>
+        <h3><i data-lucide="user"></i> Contact Information</h3>
         <div class="checkout-grid-2">
           <div class="field">
             <label for="customerName">Customer Name</label>
@@ -40,20 +40,20 @@
       </section>
 
       <section class="checkout-section">
-        <h3>🚚 Fulfillment Method</h3>
+        <h3><i data-lucide="truck"></i> Fulfillment Method</h3>
         <div class="option-grid" id="fulfillment-options">
           <button type="button" class="option-card active" data-fulfillment="PICKUP">
-            <span class="option-icon">🏬</span>
+            <span class="option-icon"><i data-lucide="store"></i></span>
             <span class="option-title">Pick-up</span>
             <span class="option-desc">Collect at store counter</span>
           </button>
           <button type="button" class="option-card" data-fulfillment="MEETUP">
-            <span class="option-icon">🤝</span>
+            <span class="option-icon"><i data-lucide="users"></i></span>
             <span class="option-title">Meet-up</span>
             <span class="option-desc">Meet at designated location</span>
           </button>
           <button type="button" class="option-card" data-fulfillment="DELIVERY">
-            <span class="option-icon">🛵</span>
+            <span class="option-icon"><i data-lucide="bike"></i></span>
             <span class="option-title">Delivery</span>
             <span class="option-desc">Delivered via partner courier</span>
           </button>
@@ -61,7 +61,7 @@
       </section>
 
       <section class="checkout-section">
-        <h3>💳 Payment Method</h3>
+        <h3><i data-lucide="credit-card"></i> Payment Method</h3>
         <div class="payment-options" id="payment-options">
           <button type="button" class="payment-option active" data-payment="CASH">
             <span class="payment-radio"></span>
@@ -69,7 +69,7 @@
               <span class="payment-title">Cash</span>
               <span class="payment-desc">Pay upon receipt</span>
             </span>
-            <span class="payment-icon">💵</span>
+            <span class="payment-icon"><i data-lucide="banknote"></i></span>
           </button>
           <button type="button" class="payment-option" data-payment="GCASH">
             <span class="payment-radio"></span>
@@ -77,7 +77,7 @@
               <span class="payment-title">GCash</span>
               <span class="payment-desc">Scan QR code next step</span>
             </span>
-            <span class="payment-icon">📱</span>
+            <span class="payment-icon"><i data-lucide="smartphone"></i></span>
           </button>
         </div>
       </section>
@@ -86,7 +86,7 @@
 
     <aside class="order-summary-col">
       <div class="order-summary-card">
-        <h3>📋 Order Summary</h3>
+        <h3><i data-lucide="clipboard-list"></i> Order Summary</h3>
         <hr class="product-divider" />
 
         <div id="summary-lines"><!-- injected by checkout-page.js --></div>
@@ -110,7 +110,7 @@
         </div>
 
         <button type="button" class="btn-place-order" id="place-order-btn">
-          ✓ Place Order
+          <i data-lucide="check"></i> Place Order
         </button>
       </div>
     </aside>
@@ -128,11 +128,13 @@
   </nav>
 </footer>
 
+<script src="https://unpkg.com/lucide@latest"></script>
 <script src="../shared/constants.js"></script>
 <script src="../shared/utils.js"></script>
 <script src="../shared/data-models.js"></script>
 <script src="../shared/storage.js"></script>
 <script src="js/cart.js"></script>
 <script src="js/checkout-page.js"></script>
+<script>lucide.createIcons();</script>
 </body>
 </html>

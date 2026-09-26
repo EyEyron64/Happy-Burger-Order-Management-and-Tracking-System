@@ -23,7 +23,7 @@ function renderConfirmation() {
     .join("");
 
   card.innerHTML = `
-    <div class="confirmation-icon">✓</div>
+    <div class="confirmation-icon"><i data-lucide="check" style="width: 28px; height: 28px;"></i></div>
     <h2>Order Confirmed!</h2>
     <p class="confirmation-subtext">
       Your order <strong>#${escapeHtml(order.id)}</strong> is being prepared
@@ -41,10 +41,14 @@ function renderConfirmation() {
     </div>
 
     <div class="confirmation-actions">
-      <a href="tracking.html?orderId=${encodeURIComponent(order.id)}" class="hb-btn">🏃 Track Order</a>
+      <a href="tracking.html?orderId=${encodeURIComponent(order.id)}" class="hb-btn"><i data-lucide="map-pin"></i> Track Order</a>
       <a href="index.html" class="hb-btn outline">Back to Home</a>
     </div>
   `;
+
+  if (window.lucide) {
+    lucide.createIcons();
+  }
 }
 
 document.addEventListener("DOMContentLoaded", renderConfirmation);

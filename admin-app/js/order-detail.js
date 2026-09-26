@@ -4,10 +4,10 @@
 // contact info. Mark [next status] and Cancel both write through Storage.
 
 const STATUS_STEPS = [
-  { key: "PENDING", label: "Pending", icon: "🕐" },
-  { key: "PREPARING", label: "Preparing", icon: "👨‍🍳" },
-  { key: "READY", label: "Ready", icon: "✅" },
-  { key: "COMPLETED", label: "Completed", icon: "📦" },
+  { key: "PENDING", label: "Pending", icon: "clock" },
+  { key: "PREPARING", label: "Preparing", icon: "chef-hat" },
+  { key: "READY", label: "Ready", icon: "check-circle" },
+  { key: "COMPLETED", label: "Completed", icon: "package" },
 ];
 
 function shortOrderNumber(id) {
@@ -21,6 +21,15 @@ function fulfillmentLabel(method) {
     case "MEETUP": return "Meet-up";
     case "PICKUP":
     default: return "Pick-up";
+  }
+}
+
+function fulfillmentIcon(method) {
+  switch (method) {
+    case "DELIVERY": return "bike";
+    case "MEETUP": return "users";
+    case "PICKUP":
+    default: return "store";
   }
 }
 
@@ -57,9 +66,13 @@ function renderStatusList(order) {
     if (current) meta = `Started ${formatDate(order.updatedAt)}`;
     else if (done) meta = "Completed";
 
+    const iconHtml = done
+      ? `<i data-lucide="check" style="width:14px;height:14px;"></i>`
+      : `<i data-lucide="${step.icon}" style="width:14px;height:14px;"></i>`;
+
     return `
       <div class="status-list-item ${done ? "done" : ""} ${current ? "current" : ""}">
-        <div class="status-dot">${done ? "✓" : step.icon}</div>
+        <div class="status-dot">${iconHtml}</div>
         <div>
           <div class="status-text-title">${step.label}</div>
           ${meta ? `<div class="status-text-meta">${meta}</div>` : ""}
@@ -107,13 +120,13 @@ function renderOrderDetail() {
       <div>
         <div class="order-detail-title-group">
           <h1>Order #${shortOrderNumber(order.id)}</h1>
-          <span class="fulfillment-tag">${fulfillmentLabel(order.fulfillmentMethod)}</span>
+          <span class="fulfillment-tag"><i data-lucide="${fulfillmentIcon(order.fulfillmentMethod)}" style="width:14px;height:14px;"></i> ${fulfillmentLabel(order.fulfillmentMethod)}</span>
         </div>
         <div class="order-detail-subtext">Placed on ${formatDate(order.createdAt)}</div>
       </div>
       <div class="order-detail-actions">
-        <button class="btn-print" onclick="window.print()">🖨 Print Ticket</button>
-        <button class="btn-cancel-order" id="cancel-order-btn" ${canCancel ? "" : "disabled"}>⊘ Cancel</button>
+        <button class="btn-print" onclick="window.print()"><i data-lucide="printer"></i> Print Ticket</button>
+        <button class="btn-cancel-order" id="cancel-order-btn" ${canCancel ? "" : "disabled"}><i data-lucide="ban"></i> Cancel</button>
       </div>
     </div>
 
@@ -154,6 +167,10 @@ function renderOrderDetail() {
       </div>
     </div>
   `;
+
+  if (window.lucide) {
+    lucide.createIcons();
+  }
 
   const markNextBtn = document.getElementById("mark-next-btn");
   if (markNextBtn) {
