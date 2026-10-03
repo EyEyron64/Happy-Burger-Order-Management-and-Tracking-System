@@ -30,7 +30,7 @@ function renderCartPage() {
                 <div class="cart-item-name">${escapeHtml(line.name)}</div>
                 ${line.notes ? `<div class="cart-item-notes">${escapeHtml(line.notes)}</div>` : ""}
               </div>
-              <div class="cart-item-price">${formatCurrency(line.price)}</div>
+              <div class="cart-item-price">${formatCurrency(line.price * line.qty)}</div>
             </div>
             <div class="cart-item-bottom-row">
               <div class="qty-stepper">
@@ -45,10 +45,6 @@ function renderCartPage() {
       `;
       })
       .join("");
-
-    if (window.lucide) {
-      lucide.createIcons();
-    }
 
     // Attach handlers per card, keyed by index so we don't need notes in a data-attribute.
     const cards = qsa(".cart-item-card", itemsCol);
@@ -67,6 +63,10 @@ function renderCartPage() {
         renderCartPage();
       });
     });
+  }
+
+  if (window.lucide) {
+    lucide.createIcons();
   }
 
   const subtotal = Cart.total();
