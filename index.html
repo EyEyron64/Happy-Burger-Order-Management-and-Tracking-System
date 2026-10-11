@@ -12,7 +12,7 @@
     <h2>Applications</h2>
     <ul>
         <li><a href="./customer-app/index.html">Customer App</a> - Browse menu, add items to cart, place orders, and track order status.</li>
-        <li><a href="./admin-app/index.html">Admin App</a> - View, manage, and update order statuses (Default Credentials: <code>admin</code> / <code>burger123</code>).</li>
+        <li><a href="./admin-app/index.html">Admin App</a> - View, manage, and update order statuses (Login is UI-only: enter any Staff ID and PIN).</li>
     </ul>
 
     <h2>Overview & Instructions</h2>
@@ -22,5 +22,33 @@
         <li>For real-time testing, open both the <strong>Customer App</strong> and the <strong>Admin App</strong> in separate tabs of the same browser window.</li>
         <li>Orders placed in the Customer App will be visible in the Admin App. Status updates made in the Admin App will reflect in the Customer App.</li>
     </ul>
+
+    <h2>Sample Data</h2>
+    <p>Quickly fill or empty the system with sample orders for testing and demos.</p>
+    <button type="button" id="populate-btn">Populate sample orders</button>
+    <button type="button" id="clear-btn">Clear sample orders</button>
+    <p id="seed-status" aria-live="polite"></p>
+
+    <script src="shared/constants.js"></script>
+    <script src="shared/utils.js"></script>
+    <script src="shared/data-models.js"></script>
+    <script src="shared/storage.js"></script>
+    <script src="shared/seed-data.js"></script>
+    <script src="shared/seed-orders.js"></script>
+    <script>
+        const statusEl = document.getElementById("seed-status");
+
+        document.getElementById("populate-btn").addEventListener("click", () => {
+            const added = seedSampleOrders({ count: 20 });
+            statusEl.textContent = "Added " + added + " sample orders. Total orders: " + Storage.getOrders().length + ".";
+        });
+
+        document.getElementById("clear-btn").addEventListener("click", () => {
+            if (!confirm("Delete all orders? The menu will be kept.")) return;
+            Storage.saveOrders([]);
+            localStorage.removeItem("bs_lastOrderId");
+            statusEl.textContent = "All orders cleared. Menu items were not touched.";
+        });
+    </script>
 </body>
 </html>
