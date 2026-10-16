@@ -12,6 +12,8 @@
 </head>
 <body>
 
+<div class="admin-sidebar-overlay" id="admin-sidebar-overlay"></div>
+
 <div class="admin-shell">
 
   <aside class="admin-sidebar">
@@ -19,23 +21,30 @@
 
     <nav class="admin-sidebar-nav">
       <a href="dashboard.html">
-        <span class="nav-icon"><i data-lucide="layout-dashboard"></i></span> Dashboard
+        <span class="nav-icon"><i data-lucide="layout-dashboard"></i></span>
+        <span class="nav-label">Dashboard</span>
       </a>
       <a href="orders.html" class="active">
-        <span class="nav-icon"><i data-lucide="clipboard-list"></i></span> Orders
+        <span class="nav-icon"><i data-lucide="clipboard-list"></i></span>
+        <span class="nav-label">Orders</span>
       </a>
     </nav>
 
     <div class="admin-sidebar-footer">
-      <a href="#" class="cosmetic-link" onclick="event.preventDefault();"><i data-lucide="life-buoy"></i> Support</a>
-      <a href="#" class="cosmetic-link" onclick="event.preventDefault();"><i data-lucide="help-circle"></i> Help Center</a>
+      <a href="#" class="cosmetic-link" onclick="event.preventDefault();"><i data-lucide="life-buoy"></i> <span class="nav-label">Support</span></a>
+      <a href="#" class="cosmetic-link" onclick="event.preventDefault();"><i data-lucide="help-circle"></i> <span class="nav-label">Help Center</span></a>
     </div>
   </aside>
 
   <div class="admin-main">
 
     <header class="admin-topbar">
-      <h2 class="admin-topbar-title">Happy Burger Management</h2>
+      <div class="admin-topbar-left">
+        <button class="admin-sidebar-toggle-btn" id="admin-sidebar-toggle" aria-label="Toggle navigation" aria-expanded="true" title="Toggle Sidebar">
+          <i data-lucide="menu"></i>
+        </button>
+        <h2 class="admin-topbar-title">Happy Burger Management</h2>
+      </div>
       <div class="admin-topbar-icons">
         <button class="icon-btn" onclick="event.preventDefault();" title="Notifications"><i data-lucide="bell"></i></button>
         <button class="icon-btn" onclick="event.preventDefault();" title="Account"><i data-lucide="user"></i></button>
@@ -88,6 +97,7 @@
 <script src="../shared/constants.js"></script>
 <script src="../shared/utils.js"></script>
 <script src="../shared/storage.js"></script>
+<script src="js/sidebar.js"></script>
 <script src="js/orders.js"></script>
 </body>
 </html>

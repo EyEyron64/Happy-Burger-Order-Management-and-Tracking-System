@@ -107,15 +107,5 @@
 /* ---------- Responsive ---------- */
 
 @media (max-width: 800px) {
-  .admin-shell { flex-direction: column; }
-  .admin-sidebar {
-    width: 100%;
-    flex-direction: row;
-    align-items: center;
-    border-right: none;
-    border-bottom: 1px solid var(--hb-border);
-  }
-  .admin-sidebar-brand { padding: 0 var(--space-md) 0 0; }
-  .admin-sidebar-footer { display: none; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
 }

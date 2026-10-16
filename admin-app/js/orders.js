@@ -62,10 +62,27 @@ function renderTabs(orders) {
 
 function matchesSearch(order, query) {
   if (!query) return true;
-  const q = query.toLowerCase();
-  const idMatch = order.id.toLowerCase().includes(q);
-  const itemMatch = order.items.some((i) => i.name.toLowerCase().includes(q));
-  return idMatch || itemMatch;
+  const q = query.trim().toLowerCase();
+  const cleanQ = q.replace(/^#/, "");
+
+  // Match full ID or ID containing query
+  const idMatch = order.id.toLowerCase().includes(q) || (cleanQ && order.id.toLowerCase().includes(cleanQ));
+
+  // Match 4-digit order code (short order number) as shown in the table
+  const digitsOnly = order.id.replace(/\D/g, "");
+  const shortCode = digitsOnly.slice(-4) || order.id;
+  const shortMatch =
+    shortOrderNumber(order.id).toLowerCase().includes(q) ||
+    shortCode.toLowerCase().includes(cleanQ) ||
+    digitsOnly.includes(cleanQ);
+
+  // Match customer name (if present)
+  const customerMatch = order.customerName && order.customerName.toLowerCase().includes(q);
+
+  // Match item names
+  const itemMatch = order.items && order.items.some((i) => i.name.toLowerCase().includes(q));
+
+  return Boolean(idMatch || shortMatch || customerMatch || itemMatch);
 }
 
 function renderTable(orders) {
